@@ -9,31 +9,31 @@ export default function Accommodations() {
   const hotels = [
     {
       name: "DoubleTree by Hilton Hotel Cariari",
-      image: "https://picsum.photos/seed/hotel1/600/400",
+      image: "https://www.hilton.com/im/en/SJODTDT/22809918/exterior01-edit.jpg?impolicy=crop&cw=5000&ch=2799&gravity=NorthWest&xposition=0&yposition=267&rw=768&rh=430",
       url: "https://www.hilton.com/en/hotels/sjodtdt-doubletree-cariari-san-jose-costa-rica/",
       description: "Ubicado en San José, ofrece comodidades de lujo y fácil acceso a instalaciones deportivas.",
     },
     {
       name: "Hotel Terraza del Pacífico",
-      image: "https://picsum.photos/seed/hotel2/600/400",
+      image: "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/ab/3c/c9/terraza-del-pacifico.jpg?w=900&h=500&s=1",
       url: "https://terrazadelpacifico.com/",
       description: "Frente al mar en Playa Hermosa, ideal para combinar entrenamiento y descanso.",
     },
     {
       name: "Tilajari Hotel Resort",
-      image: "https://picsum.photos/seed/hotel3/600/400",
+      image: "https://costarica.org/wp-content/uploads/2017/08/Tilajarislider2.jpg",
       url: "https://tilajari.com",
       description: "Resort junto al río en San Carlos con amplios terrenos e instalaciones deportivas.",
     },
     {
       name: "Condovac la Costa",
-      image: "https://picsum.photos/seed/hotel4/600/400",
+      image: "https://images.trvl-media.com/lodging/13000000/12540000/12534600/12534581/986ba3ee.jpg?impolicy=resizecrop&rw=575&rh=575&ra=fill",
       url: "https://condovaclacosta.reservadirecto.com",
       description: "Villas frente al mar con impresionantes vistas al Océano Pacífico en Guanacaste.",
     },
     {
       name: "Baldi Hot Springs",
-      image: "https://picsum.photos/seed/hotel5/600/400",
+      image: "https://baldihotsprings.cr/wp-content/uploads/2019/09/Slider-18.jpg",
       url: "https://www.baldihotsprings.cr",
       description:
         "Hotel con aguas termales naturales al pie del Volcán Arenal, perfecto para la recuperación muscular.",
@@ -43,7 +43,7 @@ export default function Accommodations() {
   // Animation variants
   const cardVariants = {
     hidden: { opacity: 0, y: 20 },
-    visible: (i) => ({
+    visible: (i: number) => ({
       opacity: 1,
       y: 0,
       transition: {
@@ -90,6 +90,8 @@ export default function Accommodations() {
                     alt={hotel.name}
                     fill
                     className="object-cover transition-transform duration-500 hover:scale-110"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    quality={80}
                   />
                 </div>
                 <CardContent className="p-4">

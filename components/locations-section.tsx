@@ -11,28 +11,28 @@ export default function LocationsSection() {
       name: "Solo Playa",
       altitude: "0 msnm",
       icon: <Waves className="h-6 w-6 text-blue-500" />,
-      image: "https://picsum.photos/seed/beach123/600/400",
+      image: "https://images.unsplash.com/photo-1674794223052-24baade99aa1?q=80&w=2664&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       description: "Entrena y compite junto al mar en las hermosas playas del Pacífico o Caribe costarricense.",
     },
     {
       name: "Solo Montaña",
       altitude: "2000 msnm",
       icon: <Mountain className="h-6 w-6 text-green-700" />,
-      image: "https://picsum.photos/seed/mountain123/600/400",
+      image: "https://images.unsplash.com/photo-1611223156134-07ade11dfe6a?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       description: "Prepárate en altura con entrenamientos en las zonas montañosas de Costa Rica.",
     },
     {
       name: "Solo Valle Central",
       altitude: "1000 msnm",
       icon: <Building className="h-6 w-6 text-gray-700" />,
-      image: "https://picsum.photos/seed/valley123/600/400",
+      image: "https://images.unsplash.com/photo-1631556210754-3318dcf812ae?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       description: "Disfruta del clima templado y las excelentes instalaciones deportivas del Valle Central.",
     },
     {
       name: "Combinaciones",
       altitude: "Variada",
       icon: <MapPin className="h-6 w-6 text-red-500" />,
-      image: "https://picsum.photos/seed/combo123/600/400",
+      image: "https://i.blogs.es/871e7b/portada-introvertidos/1366_2000.jpeg",
       description: "Combina 2 o 3 regiones para una experiencia completa (ej. Playa + Valle Central).",
     },
   ]
@@ -66,12 +66,13 @@ export default function LocationsSection() {
             >
               <Card className="overflow-hidden h-full">
                 <div className="relative h-48">
-                  <Image
-                    src={location.image || "/placeholder.svg"}
-                    alt={location.name}
-                    fill
-                    className="object-cover transition-transform duration-500 hover:scale-110"
-                  />
+                  <div className="relative h-full w-full">
+                    <img
+                      src={location.image}
+                      alt={location.name}
+                      className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4">
                     <div className="text-white">
                       <div className="flex items-center gap-2 mb-1">

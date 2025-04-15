@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Quote } from "lucide-react"
+import Image from "next/image"
 
 export default function Testimonials() {
   const testimonials = [
@@ -13,6 +14,7 @@ export default function Testimonials() {
       author: "Coach Michael Thompson",
       organization: "University of Michigan Soccer",
       initials: "MT",
+      avatar: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=200&q=80",
     },
     {
       quote:
@@ -20,6 +22,7 @@ export default function Testimonials() {
       author: "Sarah Williams",
       organization: "Vancouver Youth Soccer Association",
       initials: "SW",
+      avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
     },
   ]
 
@@ -54,7 +57,20 @@ export default function Testimonials() {
                   <p className="text-gray-700 mb-6 italic">"{testimonial.quote}"</p>
                   <div className="flex items-center">
                     <Avatar className="h-10 w-10 mr-4">
-                      <AvatarFallback className="bg-green-100 text-green-800">{testimonial.initials}</AvatarFallback>
+                      {testimonial.avatar ? (
+                        <div className="relative h-full w-full">
+                          <Image
+                            src={testimonial.avatar}
+                            alt={testimonial.author}
+                            fill
+                            className="object-cover"
+                            sizes="40px"
+                            quality={80}
+                          />
+                        </div>
+                      ) : (
+                        <AvatarFallback className="bg-green-100 text-green-800">{testimonial.initials}</AvatarFallback>
+                      )}
                     </Avatar>
                     <div>
                       <p className="font-semibold">{testimonial.author}</p>

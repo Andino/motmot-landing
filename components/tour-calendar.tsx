@@ -3,7 +3,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import { Card, CardContent } from "@/components/ui/card"
-import { Plane, Utensils, Hotel, Trophy, Coffee, Mountain, ArrowRight, Calendar, DollarSign } from "lucide-react"
+import { Plane, Utensils, Hotel, Coffee, Mountain, ArrowRight, Calendar, DollarSign, Sun, Leaf, Moon, Binoculars } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export default function TourCalendar() {
@@ -14,77 +14,86 @@ export default function TourCalendar() {
       day: 1,
       title: "Llegada",
       activities: [
-        { icon: <Plane className="h-5 w-5 text-blue-500" />, text: "Llegada al aeropuerto Juan Santamaría" },
-        { icon: <ArrowRight className="h-5 w-5 text-gray-400" />, text: "Transfer privado" },
-        { icon: <Hotel className="h-5 w-5 text-purple-500" />, text: "Check-in en el hotel" },
+        { icon: <Plane className="h-5 w-5 text-blue-500" />, text: "Llegada al Aeropuerto" },
+        { icon: <ArrowRight className="h-5 w-5 text-gray-400" />, text: "Transfer" },
         { icon: <Utensils className="h-5 w-5 text-orange-500" />, text: "Cena" },
+        { icon: <Hotel className="h-5 w-5 text-purple-500" />, text: "Alojamiento: Double Tree" },
       ],
       highlight: "Bienvenida a Costa Rica",
     },
     {
       day: 2,
-      title: "Primer Partido",
+      title: "Jardín Botánico",
       activities: [
         { icon: <Utensils className="h-5 w-5 text-orange-500" />, text: "Desayuno" },
-        { icon: <Trophy className="h-5 w-5 text-yellow-500" />, text: "Juego 1" },
+        { icon: <ArrowRight className="h-5 w-5 text-gray-400" />, text: "Transfer al CATIE" },
+        { icon: <Leaf className="h-5 w-5 text-green-600" />, text: "Lección 1: Jardín Botánico (2:00 pm)" },
         { icon: <Utensils className="h-5 w-5 text-orange-500" />, text: "Almuerzo" },
-        { icon: <Hotel className="h-5 w-5 text-purple-500" />, text: "Descanso en el hotel" },
         { icon: <Utensils className="h-5 w-5 text-orange-500" />, text: "Cena" },
+        { icon: <Moon className="h-5 w-5 text-indigo-600" />, text: "Lección 2: Recorrido nocturno (7:30 pm)" },
+        { icon: <Hotel className="h-5 w-5 text-purple-500" />, text: "Alojamiento: CATIE CEE" },
       ],
-      highlight: "Primer encuentro deportivo",
+      highlight: "Introducción a la biodiversidad tropical",
     },
     {
       day: 3,
-      title: "Segundo Partido",
+      title: "Banco de Germoplasma",
       activities: [
         { icon: <Utensils className="h-5 w-5 text-orange-500" />, text: "Desayuno" },
-        { icon: <Trophy className="h-5 w-5 text-yellow-500" />, text: "Juego 2" },
+        { icon: <Leaf className="h-5 w-5 text-green-600" />, text: "Lección 3: Banco de Germoplasma" },
         { icon: <Utensils className="h-5 w-5 text-orange-500" />, text: "Almuerzo" },
-        { icon: <Hotel className="h-5 w-5 text-purple-500" />, text: "Descanso en el hotel" },
+        { icon: <Moon className="h-5 w-5 text-indigo-600" />, text: "Lección 4: Recorrido nocturno (7:30 pm)" },
         { icon: <Utensils className="h-5 w-5 text-orange-500" />, text: "Cena" },
+        { icon: <Hotel className="h-5 w-5 text-purple-500" />, text: "Alojamiento: CATIE CEE" },
       ],
-      highlight: "Segundo encuentro deportivo",
+      highlight: "Conservación y biodiversidad nocturna",
     },
     {
       day: 4,
-      title: "Tour Cultural",
+      title: "Cacao y Café",
       activities: [
-        { icon: <Mountain className="h-5 w-5 text-green-700" />, text: "Tour Volcán Poás" },
-        { icon: <Coffee className="h-5 w-5 text-brown-500" />, text: "Doka Coffee Tour" },
+        { icon: <Utensils className="h-5 w-5 text-orange-500" />, text: "Desayuno" },
+        { icon: <Coffee className="h-5 w-5 text-brown-500" />, text: "Lección 5: Colección de cacao (9:00 am)" },
         { icon: <Utensils className="h-5 w-5 text-orange-500" />, text: "Almuerzo" },
-        { icon: <Hotel className="h-5 w-5 text-purple-500" />, text: "Regreso al hotel" },
+        { icon: <Coffee className="h-5 w-5 text-brown-500" />, text: "Lección 6: Colección de café (1:00 pm)" },
         { icon: <Utensils className="h-5 w-5 text-orange-500" />, text: "Cena" },
+        { icon: <Hotel className="h-5 w-5 text-purple-500" />, text: "Alojamiento: CATIE CEE" },
       ],
-      highlight: "Experiencia cultural y natural",
+      highlight: "Cultivos emblemáticos de Costa Rica",
     },
     {
       day: 5,
-      title: "Tercer Partido",
+      title: "Observación de Aves",
       activities: [
         { icon: <Utensils className="h-5 w-5 text-orange-500" />, text: "Desayuno" },
-        { icon: <Trophy className="h-5 w-5 text-yellow-500" />, text: "Juego 3 (con árbitros federados)" },
-        { icon: <Hotel className="h-5 w-5 text-purple-500" />, text: "Hotel Cariari" },
+        { icon: <Binoculars className="h-5 w-5 text-green-700" />, text: "Lección 7: Observación de aves (6:00 am)" },
+        { icon: <Utensils className="h-5 w-5 text-orange-500" />, text: "Almuerzo" },
+        { icon: <ArrowRight className="h-5 w-5 text-gray-400" />, text: "Transfer al Hotel" },
         { icon: <Utensils className="h-5 w-5 text-orange-500" />, text: "Cena" },
+        { icon: <Hotel className="h-5 w-5 text-purple-500" />, text: "Alojamiento: Double Tree" },
       ],
-      highlight: "Partido con arbitraje oficial",
+      highlight: "Avistamiento de fauna tropical",
     },
     {
       day: 6,
-      title: "Cuarto Partido",
+      title: "Volcán Poás",
       activities: [
         { icon: <Utensils className="h-5 w-5 text-orange-500" />, text: "Desayuno" },
-        { icon: <Trophy className="h-5 w-5 text-yellow-500" />, text: "Juego 4 (con árbitros federados)" },
-        { icon: <Hotel className="h-5 w-5 text-purple-500" />, text: "Hotel Cariari" },
+        { icon: <Mountain className="h-5 w-5 text-green-700" />, text: "Volcán Poás" },
+        { icon: <Sun className="h-5 w-5 text-red-500" />, text: "Fredo Fresas" },
+        { icon: <ArrowRight className="h-5 w-5 text-gray-400" />, text: "Transfer al Hotel" },
         { icon: <Utensils className="h-5 w-5 text-orange-500" />, text: "Cena" },
+        { icon: <Hotel className="h-5 w-5 text-purple-500" />, text: "Alojamiento: Double Tree" },
       ],
-      highlight: "Partido final con arbitraje oficial",
+      highlight: "Maravillas geológicas de Costa Rica",
     },
     {
       day: 7,
       title: "Regreso",
       activities: [
         { icon: <Utensils className="h-5 w-5 text-orange-500" />, text: "Desayuno" },
-        { icon: <Plane className="h-5 w-5 text-blue-500" />, text: "Transfer al aeropuerto" },
+        { icon: <ArrowRight className="h-5 w-5 text-gray-400" />, text: "Transfer Hotel Aeropuerto" },
+        { icon: <Plane className="h-5 w-5 text-blue-500" />, text: "Salida de Costa Rica" },
       ],
       highlight: "Despedida de Costa Rica",
     },
@@ -100,10 +109,9 @@ export default function TourCalendar() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Calendario Base de Gira</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Seeds & Sustainability</h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Ejemplo de itinerario deportivo de 7 días. Todos nuestros programas son personalizables según tus
-            necesidades.
+            A Week in Costa Rica's Living Landscapes - Un recorrido por los paisajes vivos de Costa Rica
           </p>
         </motion.div>
 
@@ -235,14 +243,13 @@ export default function TourCalendar() {
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2 text-red-600 font-medium mb-2">
-                <span className="text-lg">⚠️</span>
-                <p>Nota: Boleto aéreo y seguro de viajero no incluidos.</p>
+                <span className="text-lg">ℹ️</span>
+                <p>El programa incluye todas las comidas, transporte y alojamientos mencionados.</p>
               </div>
               <div className="flex items-center gap-2">
                 <DollarSign className="h-5 w-5 text-green-600" />
                 <p className="text-gray-700">
-                  Costo estimado: <span className="font-bold text-green-600">$982</span> por persona (calculado sobre
-                  base de 20 personas)
+                  Precios según tamaño del grupo. Contáctenos para más información.
                 </p>
               </div>
             </div>

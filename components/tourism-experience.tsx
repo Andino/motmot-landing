@@ -37,9 +37,9 @@ export default function TourismExperience() {
         "Caribe: Cahuita, Manzanillo, Puerto Viejo",
       ],
       images: [
-        "/images/tourism/beach/tamarindo.jpg",
-        "/images/tourism/beach/manuel-antonio.jpg",
-        "/images/tourism/beach/puerto-viejo.jpg",
+        "https://images.pexels.com/photos/1174732/pexels-photo-1174732.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=800",
+        "https://images.unsplash.com/photo-1516815231560-8f41ec531527?auto=format&fit=crop&w=800&q=80",
       ],
     },
     {
@@ -49,9 +49,11 @@ export default function TourismExperience() {
       description: "Explora los bosques nubosos y paisajes montañosos de Costa Rica.",
       places: ["Monteverde", "Sarapiquí", "San Carlos", "Zurquí", "Carara"],
       images: [
-        "/images/tourism/mountains/monteverde.jpg",
-        "/images/tourism/mountains/sarapiqui.jpg",
-        "/images/tourism/mountains/san-carlos.jpg",
+        "https://landedtravel.com/wp-content/uploads/2018/01/Monteverde-Cloud-Forest-Bridge.jpg",
+        "https://www.travelexcellence.com/wp-content/uploads/2019/10/Sarapiqui-Costa-Rica.jpg",
+        "https://elmundo.cr/wp-content/uploads/2019/10/San-Carlos-Costa-Rica.jpg",
+        "https://www.pinterest.com/pin/156992736987557428/",
+        "https://monteverdetourscr.com/wp-content/uploads/2018/01/Carara-National-Park.jpg",
       ],
     },
     {
@@ -61,9 +63,8 @@ export default function TourismExperience() {
       description: "Visita los impresionantes volcanes de Costa Rica con aguas termales y actividades de aventura.",
       places: ["Poás", "Arenal", "Irazú", "Tenorio", "Rincón de la Vieja", "Miravalles"],
       images: [
-        "/images/tourism/volcanoes/arenal.jpg",
-        "/images/tourism/volcanoes/poas.jpg",
-        "/images/tourism/volcanoes/irazu.jpg",
+        "https://images.unsplash.com/photo-1582514225600-1061c99588b6?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1553125333-5f74dbe58ea9?q=80&w=2573&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       ],
     },
     {
@@ -77,9 +78,9 @@ export default function TourismExperience() {
         "Otros: Teatro Nacional, Artesanía en Sarchí, Iglesias históricas",
       ],
       images: [
-        "/images/tourism/cultural/cafe-doka.jpg",
-        "/images/tourism/cultural/teatro-nacional.jpg",
-        "/images/tourism/cultural/museo-oro.jpg",
+        "https://images.unsplash.com/photo-1521302080334-4bebac2763a6?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1501747315-124a0eaca060?auto=format&fit=crop&w=800&q=80",
       ],
     },
     {
@@ -89,9 +90,9 @@ export default function TourismExperience() {
       description: "Costa Rica es un paraíso para los amantes de las aves con más de 900 especies.",
       places: ["Caribe (tierras bajas y piedemonte)", "Pacífico (norte, sur, intermedias y altas)"],
       images: [
-        "/images/tourism/birds/quetzal.jpg",
-        "/images/tourism/birds/toucan.jpg",
-        "/images/tourism/birds/hummingbird.jpg",
+        "https://images.unsplash.com/photo-1444464666168-49d633b86797?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1553264701-d138db4fd5d4?auto=format&fit=crop&w=800&q=80",
+        "https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?auto=format&fit=crop&w=800&q=80",
       ],
     },
   ]
@@ -182,6 +183,8 @@ export default function TourismExperience() {
                             alt={destination.name}
                             fill
                             className="object-cover rounded-lg"
+                            sizes="(max-width: 768px) 100vw, 50vw"
+                            quality={80}
                           />
                         </motion.div>
 
