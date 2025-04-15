@@ -49,11 +49,8 @@ export default function TourismExperience() {
       description: "Explora los bosques nubosos y paisajes montañosos de Costa Rica.",
       places: ["Monteverde", "Sarapiquí", "San Carlos", "Zurquí", "Carara"],
       images: [
-        "https://landedtravel.com/wp-content/uploads/2018/01/Monteverde-Cloud-Forest-Bridge.jpg",
-        "https://www.travelexcellence.com/wp-content/uploads/2019/10/Sarapiqui-Costa-Rica.jpg",
-        "https://elmundo.cr/wp-content/uploads/2019/10/San-Carlos-Costa-Rica.jpg",
-        "https://www.pinterest.com/pin/156992736987557428/",
-        "https://monteverdetourscr.com/wp-content/uploads/2018/01/Carara-National-Park.jpg",
+        "https://images.unsplash.com/photo-1634743600802-6c46afc7d8ef?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        "https://images.unsplash.com/photo-1639521241683-bdb8b296f4b1?q=80&w=2664&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       ],
     },
     {
