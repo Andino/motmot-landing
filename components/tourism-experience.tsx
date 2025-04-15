@@ -7,8 +7,25 @@ import Image from "next/image"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Button } from "@/components/ui/button"
 
+type Destination = {
+  id: string;
+  name: string;
+  icon: React.ReactNode;
+  description: string;
+  places: string[];
+  images: string[];
+};
+
+type ImageIndex = {
+  beach: number;
+  mountains: number;
+  volcanoes: number;
+  coffee: number;
+  birds: number;
+};
+
 export default function TourismExperience() {
-  const destinations = [
+  const destinations: Destination[] = [
     {
       id: "beach",
       name: "Tours de Playa",
@@ -20,9 +37,9 @@ export default function TourismExperience() {
         "Caribe: Cahuita, Manzanillo, Puerto Viejo",
       ],
       images: [
-        "https://picsum.photos/seed/beach1/600/400",
-        "https://picsum.photos/seed/beach2/600/400",
-        "https://picsum.photos/seed/beach3/600/400",
+        "/images/tourism/beach/tamarindo.jpg",
+        "/images/tourism/beach/manuel-antonio.jpg",
+        "/images/tourism/beach/puerto-viejo.jpg",
       ],
     },
     {
@@ -32,9 +49,9 @@ export default function TourismExperience() {
       description: "Explora los bosques nubosos y paisajes montañosos de Costa Rica.",
       places: ["Monteverde", "Sarapiquí", "San Carlos", "Zurquí", "Carara"],
       images: [
-        "https://picsum.photos/seed/mountain1/600/400",
-        "https://picsum.photos/seed/mountain2/600/400",
-        "https://picsum.photos/seed/mountain3/600/400",
+        "/images/tourism/mountains/monteverde.jpg",
+        "/images/tourism/mountains/sarapiqui.jpg",
+        "/images/tourism/mountains/san-carlos.jpg",
       ],
     },
     {
@@ -44,9 +61,9 @@ export default function TourismExperience() {
       description: "Visita los impresionantes volcanes de Costa Rica con aguas termales y actividades de aventura.",
       places: ["Poás", "Arenal", "Irazú", "Tenorio", "Rincón de la Vieja", "Miravalles"],
       images: [
-        "https://picsum.photos/seed/volcano1/600/400",
-        "https://picsum.photos/seed/volcano2/600/400",
-        "https://picsum.photos/seed/volcano3/600/400",
+        "/images/tourism/volcanoes/arenal.jpg",
+        "/images/tourism/volcanoes/poas.jpg",
+        "/images/tourism/volcanoes/irazu.jpg",
       ],
     },
     {
@@ -60,9 +77,9 @@ export default function TourismExperience() {
         "Otros: Teatro Nacional, Artesanía en Sarchí, Iglesias históricas",
       ],
       images: [
-        "https://picsum.photos/seed/coffee1/600/400",
-        "https://picsum.photos/seed/coffee2/600/400",
-        "https://picsum.photos/seed/coffee3/600/400",
+        "/images/tourism/cultural/cafe-doka.jpg",
+        "/images/tourism/cultural/teatro-nacional.jpg",
+        "/images/tourism/cultural/museo-oro.jpg",
       ],
     },
     {
@@ -72,15 +89,14 @@ export default function TourismExperience() {
       description: "Costa Rica es un paraíso para los amantes de las aves con más de 900 especies.",
       places: ["Caribe (tierras bajas y piedemonte)", "Pacífico (norte, sur, intermedias y altas)"],
       images: [
-        "https://picsum.photos/seed/birds1/600/400",
-        "https://picsum.photos/seed/birds2/600/400",
-        "https://picsum.photos/seed/birds3/600/400",
+        "/images/tourism/birds/quetzal.jpg",
+        "/images/tourism/birds/toucan.jpg",
+        "/images/tourism/birds/hummingbird.jpg",
       ],
     },
   ]
 
-  // State to track current image index for each destination
-  const [currentImageIndex, setCurrentImageIndex] = useState({
+  const [currentImageIndex, setCurrentImageIndex] = useState<ImageIndex>({
     beach: 0,
     mountains: 0,
     volcanoes: 0,
@@ -88,16 +104,20 @@ export default function TourismExperience() {
     birds: 0,
   })
 
-  const nextImage = (destinationId) => {
+  const nextImage = (destinationId: keyof ImageIndex) => {
     const destination = destinations.find((d) => d.id === destinationId)
+    if (!destination) return
+    
     setCurrentImageIndex((prev) => ({
       ...prev,
       [destinationId]: (prev[destinationId] + 1) % destination.images.length,
     }))
   }
 
-  const prevImage = (destinationId) => {
+  const prevImage = (destinationId: keyof ImageIndex) => {
     const destination = destinations.find((d) => d.id === destinationId)
+    if (!destination) return
+    
     setCurrentImageIndex((prev) => ({
       ...prev,
       [destinationId]: (prev[destinationId] - 1 + destination.images.length) % destination.images.length,
@@ -121,22 +141,24 @@ export default function TourismExperience() {
           </p>
         </motion.div>
 
-        <div className="bg-white rounded-lg shadow-sm">
+        <div className="bg-white rounded-lg shadow-sm overflow-hidden">
           <Tabs defaultValue="beach" className="w-full">
-            <TabsList className="w-full grid grid-cols-2 md:grid-cols-5 rounded-t-lg border-b">
-              {destinations.map((destination) => (
-                <TabsTrigger
-                  key={destination.id}
-                  value={destination.id}
-                  className="flex items-center justify-center gap-2 py-3 px-2 data-[state=active]:bg-white"
-                >
-                  <div className="bg-gray-100 p-1.5 rounded-full">{destination.icon}</div>
-                  <span className="text-sm hidden md:inline">{destination.name.split(" ")[0]}</span>
-                </TabsTrigger>
-              ))}
-            </TabsList>
+            <div className="overflow-x-auto">
+              <TabsList className="w-full flex rounded-t-lg border-b min-w-max a p-8">
+                {destinations.map((destination) => (
+                  <TabsTrigger
+                    key={destination.id}
+                    value={destination.id}
+                    className="flex items-center justify-center gap-3 py-4 px-8 data-[state=active]:bg-white data-[state=active]:shadow-sm hover:bg-gray-50 transition-colors whitespace-nowrap"
+                  >
+                    <div className="bg-gray-100 p-2 rounded-full flex-shrink-0">{destination.icon}</div>
+                    <span className="text-sm font-medium">{destination.name}</span>
+                  </TabsTrigger>
+                ))}
+              </TabsList>
+            </div>
 
-            <div className="bg-green-50 p-4 rounded-b-lg">
+            <div className="bg-green-50 p-4 md:p-6 rounded-b-lg">
               {destinations.map((destination) => (
                 <TabsContent key={destination.id} value={destination.id} className="mt-0 pt-6">
                   <motion.div
@@ -146,9 +168,9 @@ export default function TourismExperience() {
                     className="grid md:grid-cols-2 gap-8"
                   >
                     <div className="rounded-lg overflow-hidden relative">
-                      <div className="relative h-[250px] sm:h-[300px] md:h-[350px] w-full">
+                      <div className="relative h-[250px] sm:h-[300px] md:h-[400px] w-full">
                         <motion.div
-                          key={currentImageIndex[destination.id]}
+                          key={currentImageIndex[destination.id as keyof ImageIndex]}
                           initial={{ opacity: 0 }}
                           animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
@@ -156,7 +178,7 @@ export default function TourismExperience() {
                           className="absolute inset-0"
                         >
                           <Image
-                            src={destination.images[currentImageIndex[destination.id]] || "/placeholder.svg"}
+                            src={destination.images[currentImageIndex[destination.id as keyof ImageIndex]] || "/placeholder.svg"}
                             alt={destination.name}
                             fill
                             className="object-cover rounded-lg"
@@ -169,7 +191,7 @@ export default function TourismExperience() {
                             variant="ghost"
                             size="icon"
                             className="h-10 w-10 rounded-full bg-black/20 text-white hover:bg-black/40 transition-colors duration-200"
-                            onClick={() => prevImage(destination.id)}
+                            onClick={() => prevImage(destination.id as keyof ImageIndex)}
                           >
                             <ChevronLeft className="h-6 w-6" />
                           </Button>
@@ -177,7 +199,7 @@ export default function TourismExperience() {
                             variant="ghost"
                             size="icon"
                             className="h-10 w-10 rounded-full bg-black/20 text-white hover:bg-black/40 transition-colors duration-200"
-                            onClick={() => nextImage(destination.id)}
+                            onClick={() => nextImage(destination.id as keyof ImageIndex)}
                           >
                             <ChevronRight className="h-6 w-6" />
                           </Button>
@@ -188,7 +210,9 @@ export default function TourismExperience() {
                           {destination.images.map((_, index) => (
                             <motion.div
                               key={index}
-                              className={`h-2 w-2 rounded-full cursor-pointer ${currentImageIndex[destination.id] === index ? "bg-white" : "bg-white/50"}`}
+                              className={`h-2 w-2 rounded-full cursor-pointer ${
+                                currentImageIndex[destination.id as keyof ImageIndex] === index ? "bg-white" : "bg-white/50"
+                              }`}
                               whileHover={{ scale: 1.2 }}
                               onClick={() => setCurrentImageIndex((prev) => ({ ...prev, [destination.id]: index }))}
                             />
@@ -197,7 +221,7 @@ export default function TourismExperience() {
                       </div>
                     </div>
                     <motion.div
-                      className="flex flex-col justify-center"
+                      className="flex flex-col justify-center p-4 md:p-0"
                       initial={{ opacity: 0, x: 20 }}
                       whileInView={{ opacity: 1, x: 0 }}
                       viewport={{ once: true }}

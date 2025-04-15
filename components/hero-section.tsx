@@ -41,7 +41,7 @@ export default function HeroSection() {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-white text-white hover:text-white hover:bg-white/10 h-12 px-6 text-base w-full sm:w-auto"
+                className="border-white text-black hover:text-white hover:bg-white/10 h-12 px-6 text-base w-full sm:w-auto"
               >
                 Contactar ahora
               </Button>
